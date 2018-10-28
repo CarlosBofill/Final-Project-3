@@ -1,15 +1,11 @@
 import React from "react";
 import "./MentorCard.css";
+// import "./CardBtn";
 
 const MentorCard = props => (
   <div className="card">
-    {/* <a href="http://google.com">
-      link */}
     <div className="img-container">
       <img alt={props.name} src={props.image} />
-      <button type="button" class="btn btn-success">
-        Check Me Out
-      </button>
     </div>
     <div className="content">
       <ul>
@@ -19,12 +15,15 @@ const MentorCard = props => (
         <li>
           <strong>Department:</strong> {props.department}
         </li>
-        {/* <li>
+        <li>
           <strong>Location:</strong> {props.location}
-        </li> */}
+        </li>
+        <li>
+          <strong>Known For:</strong> {props.knownFor}
+        </li>
       </ul>
       <div className="card-block">
-        <p className="card-text">
+        {/* <p className="card-text">
           {" "}
           as convallis ut turpis vitae facilisis. Morbi eu augue vel quam
           efficitur rhoncus vitae eget lectus. Cras
@@ -33,7 +32,7 @@ const MentorCard = props => (
           {" "}
           as convallis ut turpis vitae facilisis. Morbi eu augue vel quam
           efficitur rhoncus vitae eget lectus. Cras
-        </p>
+        </p> */}
       </div>
     </div>
     {/* <span onClick={() => props.removeFriend(props.id)} className="remove">

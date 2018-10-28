@@ -5,21 +5,28 @@ import Title from "../../components/Title";
 import "./MentorsPage.css";
 
 import mentors from "./mentors.json";
+import MentorProfile from "../../components/MentorProfile/MentorProfile";
+
 // import "./MentorCard.css";
 
 class Mentor extends Component {
   state = {
-    mentors
+    mentors,
+    profile: {}
   };
 
-  removeMentor = id => {
-    // Filter this.state.mentors for mentors with an id not equal to the id being removed
-    const mentors = this.state.mentors.filter(mentor => mentor.id !== id);
-    // Set this.state.mentors equal to the new mentors array
-    this.setState({ mentors });
+  goToMentorProfile = mentor => {
+    //alert(" Testing : " + mentor.id);
+    this.setState({
+      profile: mentor
+    });
   };
 
-  // Map over this.state.mentors and render a MentorCard component for each mentor object
+  goBack = () => {
+    this.setState({
+      profile: {}
+    });
+  };
 
   render() {
     console.log("Props: ", this.props);
@@ -27,17 +34,38 @@ class Mentor extends Component {
       <Wrapper className="wrapper-main">
         <Title>Our Mentors </Title>
 
-        {this.state.mentors.map(mentor => (
-          <MentorCard
-            // removeMentor={this.removeMentor}
-            id={mentor.id}
-            key={mentor.id}
-            image={mentor.image}
-            name={mentor.name}
-            department={mentor.department}
-            location={mentor.location}
+        {this.state.profile.id ? (
+          <MentorProfile
+            // id={this.state.profile.id}
+            image={this.state.profile.image}
+            name={this.state.profile.name}
+            // department={this.state.profile.department}
+            // location={this.state.profile.location}
+            goBack={this.goBack}
           />
-        ))}
+        ) : (
+          this.state.mentors.map(mentor => (
+            <div>
+              <MentorCard
+                // removeMentor={this.removeMentor}
+                id={mentor.id}
+                key={mentor.id}
+                image={mentor.image}
+                name={mentor.name}
+                department={mentor.department}
+                location={mentor.location}
+                knownFor={mentor.knownFor}
+              />
+              <button
+                type="button"
+                className="btn btn-success"
+                onClick={() => this.goToMentorProfile(mentor)}
+              >
+                Go To Expert Page>
+              </button>
+            </div>
+          ))
+        )}
       </Wrapper>
     );
   }
