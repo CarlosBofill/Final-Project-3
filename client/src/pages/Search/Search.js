@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Container from "../../components/Grid";
-// import {Form} from './form/form';
-// import {NewMovies} from './newMovies/newMovies';
+import { Form } from "../../form/form";
+import { NewMovies } from "../../newMovies/newMovies";
 
 export class Search extends React.Component {
   render() {
-    return(
+    return (
       <div className="container">
         {/* <Form /> */}
         {/* <NewMovies /> */}
@@ -13,8 +13,5 @@ export class Search extends React.Component {
     );
   }
 }
-
-
-
 
 export default Search;
