@@ -10,8 +10,8 @@ import Wrapper from "./components/Wrapper";
 import Title from "./components/Title/Title";
 // import Title from "./components/Title";
 import MentorCard from "./components/MentorCard/MentorCard";
-
-import Movies from "./movie/movie";
+// import Movies from "./movie/movie";
+import { Movie } from "./movie/movie";
 
 const App = () => (
   <Router>
@@ -21,7 +21,15 @@ const App = () => (
         <Route exact path="/" component={About} />
         <Route exact path="/about" component={About} />
         <Route exact path="/mentors" component={Mentors} />
-        <Route exact path="/search" component={Search} />
+        {/* <Route exact path="/search" component={Search} /> */}
+
+        {/* <BrowserRouter> */}
+        <Switch>
+          <Route path={"/movie/:id"} component={Movie} />
+          <Route path={"/"} component={Search} />
+        </Switch>
+        {/* </BrowserRouter> */}
+
         <Route extact path="/signIn" component={SignIn} />
       </Wrapper>
       <Footer />
