@@ -32,7 +32,7 @@ const Navbar = props => (
                 : "nav-link"
             }
           >
-            Search
+            Movie Search
           </Link>
         </li>
         <li className="nav-item">
@@ -59,7 +59,7 @@ const Navbar = props => (
             Sign In
           </Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
           <Link
             to="/movies"
             className={
@@ -70,7 +70,7 @@ const Navbar = props => (
           >
             Movie Search
           </Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   </nav>
